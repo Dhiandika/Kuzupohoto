@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="PhotoStrips - Capture your special moments with our photo booth app. Create beautiful photo strips and memories that last forever.">
+  <title>Kuzupost PhotoStrips</title>
+  <!-- ICON -->
+  <link rel="apple-touch-icon" sizes="180x180" href="Ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Ico/favicon-16x16.png">
+  <link rel="manifest" href="Ico/site.webmanifest">
+
+  <!-- Fonts and Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div id="particles-js"></div>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="Logo-nav.png" alt="PhotoStrips Logo" height="50" width="auto">
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" aria-current="page">Beranda</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero-inner">
+      <div class="hero-foto">
+        <img src="Logo.png" class="logo-blend" alt="PhotoStrips Logo" width="200" height="200">
+      </div>
+
+      <div class="hero-label ">Capture the Story, Create the Memory.</div>
+      <p class="hero-tagline ">Every laugh, every loving glance, is precious.
+        Let us help you hold on to them forever.,<br>relive the love</p>
+      <div class="hero-buttons">
+        <a href="photostrip.html" class="hero-button">START <i class="fa fa-camera" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-text">&copy; 2025 Kuzupost PhotoStrips. Dibuat oleh
+      Dhiandika Aditya.</p>
+
+    <div class="footer-icons">
+      <a href="https://www.instagram.com/npemburu6/" title="Instagram" target="_blank" rel="noopener noreferrer"
+        aria-label="Follow us on Instagram">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24"
+          height="24">
+      </a>
+      <a href="https://www.instagram.com/npemburu6/" title="Facebook" target="_blank" rel="noopener noreferrer"
+        aria-label="Follow us on Facebook">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24"
+          height="24">
+      </a>
+      <a href="https://github.com/Dhiandika" title="Twitter" target="_blank" rel="noopener noreferrer"
+        aria-label="Follow us on Twitter">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter" width="24"
+          height="24">
+      </a>
+      <a href="https://github.com/Dhiandika" title="Email" aria-label="Contact us via Email">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" width="24"
+          height="24">
+      </a>
+    </div>
+
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    toggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+      toggle.setAttribute("aria-expanded", navMenu.classList.contains("show"));
+    });
+  </script>
+  <script src="js/particles.js"></script>
+  <script>
+    // Initialize particles.js for the whole body background using local particles.js
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: {
+          type: "circle",
+          stroke: { width: 0, color: "#000000" },
+          polygon: { nb_sides: 5 },
+          image: { src: "img/github.svg", width: 100, height: 100 }
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 6,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: { enable: false, rotateX: 600, rotateY: 1200 }
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 400, line_linked: { opacity: 1 } },
+          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+          repulse: { distance: 200, duration: 0.4 },
+          push: { particles_nb: 4 },
+          remove: { particles_nb: 2 }
+        }
+      },
+      retina_detect: true
+    });
+    var count_particles, stats, update;
+    stats = new Stats();
+    stats.setMode(0);
+    stats.domElement.style.position = "absolute";
+    stats.domElement.style.left = "0px";
+    stats.domElement.style.top = "0px";
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector(".js-count-particles");
+    update = function () {
+      stats.begin();
+      stats.end();
+      if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+      }
+      requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuzupost PhotoStrips | Preview</title>
+  <!-- ICON -->
+  <link rel="apple-touch-icon" sizes="180x180" href="Ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Ico/favicon-16x16.png">
+  <link rel="manifest" href="Ico/site.webmanifest">  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/prevew.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo"><img src="Logo-nav.png" alt="logo" height="50px" /></div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    </div>
+  </nav>
+
+  <div class="controls">
+    <strong>Warna Background</strong><br />
+    <button class="color-button hitam" onclick="setColor('#000000')">Hitam</button>
+    <button class="color-button putih" onclick="setColor('#ffffff')">Putih</button>
+    <button class="color-button pink" onclick="setColor('#ffb6c1')">Pink</button>
+    <button class="color-button abu-abu" onclick="setColor('#888888')">Abu-abu</button>
+    <br /><br />
+    <strong>Color Picker</strong><br />
+    <input type="color" id="customColorPicker" onchange="setColor(this.value, true)" value="#ffffff" />
+    <br /><br />
+    <strong>Pilih Frame</strong><br />
+    <button class="frame-button" onclick="setFrame('color')">Default</button>
+    <button class="frame-button" onclick="setFrame('custom', 'frames/frame1.png')">Frame 1</button>
+    <button class="frame-button" onclick="setFrame('custom', 'frames/frame2.png')">Frame 2</button>
+    <button class="frame-button" onclick="setFrame('custom', 'frames/frame3.png')">Frame 3</button>
+  </div>
+
+  <canvas id="finalCanvas"></canvas>
+  <div class="tombol">
+    <a id="download" download="fotostrip.png">💾 Download Hasil</a>
+    <a id="reset" href="#" onclick="resetPhoto()">🔁 Ulang Foto</a>
+  </div>
+
+   <footer class="footer">
+    <p class="footer-text">&copy; 2025 Kuzupost PhotoStrips. Dibuat oleh
+      Dhiandika Aditya.</p>
+
+    <div class="footer-icons">
+      <a href="https://www.instagram.com/npemburu6/" title="Instagram" target="_blank" rel="noopener noreferrer"
+        aria-label="Follow us on Instagram">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24"
+          height="24">
+      </a>
+      <a href="https://www.instagram.com/npemburu6/" title="Facebook" target="_blank" rel="noopener noreferrer"
+        aria-label="Follow us on Facebook">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24"
+          height="24">
+      </a>
+      <a href="https://github.com/Dhiandika" title="Twitter" target="_blank" rel="noopener noreferrer"
+        aria-label="Follow us on Twitter">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter" width="24"
+          height="24">
+      </a>
+      <a href="https://github.com/Dhiandika" title="Email" aria-label="Contact us via Email">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" width="24"
+          height="24">
+      </a>
+    </div>
+
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </div>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById("finalCanvas");
+    const ctx = canvas.getContext("2d");
+    const download = document.getElementById("download");
+
+    let frameChoice = "color";
+    let customFrameSrc = "";
+    let color = "#ffffff";
+    const photos = JSON.parse(localStorage.getItem("photos") || "[]");
+
+    function setColor(c, force = false) {
+      if (frameChoice === "custom" && !force) return;
+      color = c;
+      renderCanvas();
+    }
+
+    function setFrame(f, src = "") {
+      frameChoice = f;
+      customFrameSrc = src;
+
+      if (src.includes("frame1.png")) color = "#169d53";
+      else if (src.includes("frame2.png")) color = "#e5e6d9";
+      else if (src.includes("frame3.png")) color = "#272323";
+
+      renderCanvas();
+    }
+
+    function renderCanvas() {
+      if (photos.length !== 3) return;
+
+      const photoWidth = 1080;
+      const photoHeight = 720;
+      const sideThickness = 120;
+      const topThickness = 120;
+      const bottomThickness = 0;
+      const extraBottom = 632;
+      const totalWidth = photoWidth + sideThickness * 2;
+      const totalHeightPerPhoto = topThickness + photoHeight + bottomThickness;
+      const canvasHeight = totalHeightPerPhoto * 3 + extraBottom;
+
+      canvas.width = totalWidth;
+      canvas.height = canvasHeight;
+
+      ctx.fillStyle = color;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      let loaded = 0;
+      let lastOffsetY = 0;
+      const loadedImages = [];
+
+      function drawAllPhotosAndFrame(frameImg = null) {
+        for (let j = 0; j < 3; j++) {
+          let img = loadedImages[j];
+          let sx = 0, sy = 0, sWidth = img.width, sHeight = img.height;
+          const targetRatio = photoWidth / photoHeight;
+          const imgRatio = img.width / img.height;
+          if (imgRatio > targetRatio) {
+            sHeight = img.height;
+            sWidth = sHeight * targetRatio;
+            sx = (img.width - sWidth) / 2;
+          } else {
+            sWidth = img.width;
+            sHeight = sWidth / targetRatio;
+            sy = (img.height - sHeight) / 2;
+          }
+          const offsetY = j * totalHeightPerPhoto;
+          lastOffsetY = offsetY;
+          ctx.fillRect(0, offsetY, totalWidth, topThickness);
+          ctx.fillRect(0, offsetY + topThickness + photoHeight, totalWidth, bottomThickness);
+          ctx.fillRect(0, offsetY + topThickness, sideThickness, photoHeight);
+          ctx.fillRect(totalWidth - sideThickness, offsetY + topThickness, sideThickness, photoHeight);
+          ctx.drawImage(
+            img, sx, sy, sWidth, sHeight,
+            sideThickness,
+            offsetY + topThickness,
+            photoWidth,
+            photoHeight
+          );
+        }
+        const finalFrameY = lastOffsetY + topThickness + photoHeight + bottomThickness;
+        ctx.fillRect(0, finalFrameY, totalWidth, extraBottom);
+
+        // Draw frame on top of all if provided
+        if (frameImg) {
+          // Ensure frame is drawn after all photos and extra bottom
+          frameImg.onload = null; // Prevent recursion
+          ctx.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
+        }
+        download.href = canvas.toDataURL("image/png");
+      }
+
+      // Load all photos first
+      let frameImg = null;
+      let frameLoaded = false;
+      photos.forEach((dataUrl, i) => {
+        const img = new Image();
+        img.src = dataUrl;
+        img.onload = () => {
+          loadedImages[i] = img;
+          loaded++;
+          if (loaded === 3) {
+            if (frameChoice === "custom" && customFrameSrc) {
+              frameImg = new Image();
+              frameImg.src = customFrameSrc;
+              frameImg.onload = () => {
+                drawAllPhotosAndFrame(frameImg);
+              };
+              frameImg.onerror = () => {
+                drawAllPhotosAndFrame();
+              };
+            } else {
+              drawAllPhotosAndFrame();
+            }
+          }
+        };
+      });
+    }
+
+    function resetPhoto() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      localStorage.removeItem("photos");
+      window.location.href = 'photostrip.html';
+    }
+
+    renderCanvas();
+  </script>
+
+  <script>
+    const toggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    toggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+  </script>
+
+</body>
+</html>

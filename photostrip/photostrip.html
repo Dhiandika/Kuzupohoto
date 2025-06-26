@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PhotoStrips - Ambil foto strip langsung dari webcam Anda dan buat kenangan seru!">
+  <title>Kuzupost PhotoStrips</title>
+  <!-- ICON -->
+  <link rel="apple-touch-icon" sizes="180x180" href="Ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Ico/favicon-16x16.png">
+  <link rel="manifest" href="Ico/site.webmanifest">
+  <!-- Fonts and Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="css/photostrip.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="Logo-nav.png" alt="PhotoStrips Logo" height="50" width="auto">
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" aria-current="page">Beranda</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <div id="main-container">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="video-container">
+        <video id="video" autoplay playsinline>
+          Browser Anda tidak mendukung video.
+        </video>
+        <div id="countdown" aria-live="polite"></div>
+        <div id="flashEffect" class="flash-effect"></div>
+        <br>
+      </div>
+      <div class="p-3">
+        <label for="delaySelect" style="display:none;">Pilih Delay</label>
+        <select id="delaySelect" aria-label="Pilih delay foto" class="form-select form-select-sm ">
+          <option value="1000">1 detik</option>
+          <option value="3000" selected>3 detik</option>
+          <option value="5000">5 detik</option>
+          <option value="10000">10 detik</option>
+        </select>
+        <button id="start" aria-label="Mulai sesi foto">Mulai Sesi Foto</button>
+        <button id="finish" disabled aria-label="Selesai sesi foto">Selesai</button>
+        <button id="reset" style="display:none;" aria-label="Mulai ulang sesi foto">Mulai Ulang Sesi Foto</button>
+      </div>
+      <canvas id="previewCanvas" style="display: none;"></canvas>
+    </div>
+
+    <div class="preview-container" id="previewAreaLive"></div>
+  </div>
+
+
+  <footer class="footer">
+    <p class="footer-text">&copy; 2025 Kuzupost PhotoStrips. Dibuat oleh
+      Dhiandika Aditya.</p>
+
+    <div class="footer-icons">
+      <a href="https://www.instagram.com/npemburu6/" title="Instagram" target="_blank" rel="noopener noreferrer"
+        aria-label="Follow us on Instagram">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24"
+          height="24">
+      </a>
+      <a href="https://www.instagram.com/npemburu6/" title="Facebook" target="_blank" rel="noopener noreferrer"
+        aria-label="Follow us on Facebook">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24"
+          height="24">
+      </a>
+      <a href="https://github.com/Dhiandika" title="Twitter" target="_blank" rel="noopener noreferrer"
+        aria-label="Follow us on Twitter">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter" width="24"
+          height="24">
+      </a>
+      <a href="https://github.com/Dhiandika" title="Email" aria-label="Contact us via Email">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" width="24"
+          height="24">
+      </a>
+    </div>
+
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </div>
+  </footer>
+
+
+  <script src="js/photostrip.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
