@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Kuzupost PhotoStrips - Terms of Service">
+    <div
+        class="relative min-h-[80vh] flex flex-col items-center py-16 px-4 md:px-6 overflow-hidden bg-neo-yellow"
+    >
+        <!-- Background accents -->
+        <div
+            class="absolute inset-0 z-0 pointer-events-none"
+            style="background-image: repeating-linear-gradient(45deg, #111827 25%, transparent 25%, transparent 75%, #111827 75%, #111827), repeating-linear-gradient(45deg, #111827 25%, #ffffff 25%, #ffffff 75%, #111827 75%, #111827); background-position: 0 0, 10px 10px; background-size: 20px 20px; opacity: 0.1;"
+        >
+        </div>
+
+        <div class="relative z-10 w-full max-w-4xl flex flex-col items-center">
+            <h1
+                class="text-4xl md:text-5xl font-black uppercase text-neo-white bg-neo-black inline-block px-6 py-3 border-4 border-neo-white shadow-[8px_8px_0_0_#00e5ff] transform rotate-1 mb-8 hover:rotate-0 transition-transform cursor-pointer text-center"
+            >
+                TERMS OF SERVICE
+            </h1>
+
+            <div
+                class="w-full bg-neo-white border-4 border-neo-black p-6 md:p-8 shadow-[8px_8px_0_0_#111827] space-y-6 relative"
+            >
+                <!-- Decorative element -->
+                <div
+                    class="absolute -top-6 -left-6 w-16 h-16 bg-neo-cyan border-4 border-neo-black transform -rotate-12"
+                >
+                </div>
+
+                <div
+                    class="prose prose-lg max-w-none text-neo-black font-bold font-mono"
+                >
+                    <p
+                        class="text-2xl font-black bg-neo-pink p-4 border-4 border-neo-black shadow-[-4px_4px_0_0_#111827] mb-8 transform rotate-1"
+                    >
+                        Aturan mainnya sederhana. Teruslah tersenyum.
+                    </p>
+
+                    <h2
+                        class="text-3xl font-black uppercase border-b-4 border-neo-black pb-2 inline-block mb-4 mt-8"
+                    >
+                        1. Penggunaan Layanan
+                    </h2>
+                    <p
+                        class="leading-relaxed bg-black/5 p-4 border-l-[8px] border-neo-yellow"
+                    >
+                        Layanan Kuzupost PhotoStrips disediakan "sebagaimana
+                        adanya". Anda bebas menggunakan alat ini untuk membuat
+                        foto strip pribadi maupun komersial, selama konten yang
+                        dihasilkan tidak melanggar hukum, merugikan pihak lain,
+                        atau mengandung unsur kebencian.
+                    </p>
+
+                    <h2
+                        class="text-3xl font-black uppercase border-b-4 border-neo-black pb-2 inline-block mb-4 mt-8"
+                    >
+                        2. Ketersediaan Laman
+                    </h2>
+                    <p
+                        class="leading-relaxed bg-black/5 p-4 border-l-[8px] border-neo-cyan"
+                    >
+                        Meskipun kami berusaha agar aplikasi ini selalu online
+                        dan responsif, kami tidak menjamin 100% uptime. Aplikasi
+                        ini sangat bergantung pada kapabilitas browser dan
+                        perangkat keras Anda. Jika komputer Anda lambat merender
+                        kanvas, mohon bersabar.
+                    </p>
+
+                    <h2
+                        class="text-3xl font-black uppercase border-b-4 border-neo-black pb-2 inline-block mb-4 mt-8"
+                    >
+                        3. Kepemilikan Konten
+                    </h2>
+                    <p
+                        class="leading-relaxed bg-black/5 p-4 border-l-[8px] border-neo-pink"
+                    >
+                        Anda memegang hak cipta penuh atas wajah dan foto yang
+                        Anda hasilkan. Kami memegang hak cipta atas desain frame
+                        yang kami sediakan, tetapi Anda memiliki lisensi penuh
+                        untuk mendistribusikan gambar akhir (foto Anda + frame
+                        kami) kemanapun Anda suka.
+                    </p>
+                </div>
+
+                <div class="mt-12 flex justify-end">
+                    <button
+                        onclick="window.history.back();"
+                        class="inline-block bg-neo-black text-neo-white font-black text-lg py-3 px-6 border-4 border-neo-white shadow-[4px_4px_0_0_#111827] hover:shadow-[6px_6px_0_0_#111827] hover:-translate-y-1 active:shadow-none active:translate-y-2 transition-all uppercase tracking-widest"
+                    >
+                        SETUJU & KEMBALI <i class="fa fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

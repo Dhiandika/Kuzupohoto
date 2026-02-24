@@ -1,0 +1,77 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Kuzupost PhotoStrips - Support">
+    <div
+        class="max-w-4xl mx-auto p-6 min-h-[60vh] flex flex-col items-center mt-10"
+    >
+        <div
+            class="bg-neo-white border-4 border-neo-black neo-shadow-lg p-8 md:p-12 w-full"
+        >
+            <h1
+                class="text-4xl md:text-5xl font-black text-neo-black uppercase tracking-tight mb-8 bg-neo-cyan inline-block px-4 py-2 border-4 border-neo-black neo-shadow transform -rotate-1"
+            >
+                Support
+            </h1>
+
+            <div
+                class="space-y-6 text-lg font-medium leading-relaxed text-neo-black mt-6"
+            >
+                <p class="bg-neo-pink/30 p-4 border-l-4 border-neo-black">
+                    Need help? We're here for you. Whether you're experiencing
+                    issues with the photo booth, have questions about your saved
+                    photos, or just want to leave feedback, don't hesitate to
+                    reach out!
+                </p>
+
+                <div
+                    class="bg-neo-yellow/30 p-6 border-4 border-neo-black neo-shadow mt-8"
+                >
+                    <h2 class="text-2xl font-bold mb-4">
+                        Frequently Asked Questions
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="border-b-2 border-neo-black pb-2">
+                            <h3 class="font-bold">
+                                Q: Mengapa kamera saya tidak berfungsi?
+                            </h3>
+                            <p class="text-sm mt-1">
+                                A: Pastikan Anda memberikan izin akses kamera ke
+                                browser. Muat ulang halaman dan klik "Allow"
+                                saat diminta.
+                            </p>
+                        </div>
+                        <div class="border-b-2 border-neo-black pb-2">
+                            <h3 class="font-bold">
+                                Q: Di mana foto saya disimpan?
+                            </h3>
+                            <p class="text-sm mt-1">
+                                A: Foto-foto diunduh secara lokal ke perangkat
+                                Anda. Kami tidak menyimpan foto di server mana
+                                pun demi privasi Anda.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">
+                                Q: Apakah aplikasi ini gratis?
+                            </h3>
+                            <p class="text-sm mt-1">
+                                A: Ya! Semua fitur gratis untuk digunakan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center md:text-left">
+                <button
+                    onclick="window.history.back();"
+                    class="neo-button bg-neo-yellow rounded-none border-4"
+                >
+                    <i class="fa fa-arrow-left mr-2"></i> Kembali
+                </button>
+            </div>
+        </div>
+    </div>
+</Layout>

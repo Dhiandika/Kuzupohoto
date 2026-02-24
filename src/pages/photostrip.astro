@@ -1,0 +1,1117 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Kuzupost PhotoStrips - App">
+    <div
+        class="max-w-5xl mx-auto w-full p-4 md:p-8 flex flex-col items-center mt-4 mb-16 relative"
+    >
+        <!-- Main Application Container -->
+        <div
+            class="w-full bg-neo-white border-[4px] border-neo-black shadow-[8px_8px_0_0_#111827] p-6 md:p-10 relative"
+        >
+            <!-- App Header -->
+            <div class="text-center mb-8">
+                <h1
+                    class="text-3xl md:text-5xl font-black uppercase text-neo-white bg-neo-black inline-block px-4 py-2 border-[4px] border-neo-white shadow-[6px_6px_0_0_#FFEBB2] transform -rotate-1 mb-3 hover:rotate-0 transition-transform"
+                >
+                    Photo Booth
+                </h1>
+                <p
+                    class="text-lg md:text-xl font-bold text-gray-800"
+                    id="step-desc"
+                >
+                    Langkah 1: Atur Sesi Foto
+                </p>
+            </div>
+
+            <!-- Step Progress Indicator -->
+            <div
+                class="flex justify-center items-center gap-1 md:gap-3 mb-10 overflow-x-auto pb-4 px-2"
+            >
+                <div class="step-indicator" id="ind-1">
+                    <span
+                        class="w-8 h-8 md:w-10 md:h-10 rounded-full border-[3px] border-black flex items-center justify-center font-black text-lg indicator-dot bg-neo-yellow"
+                        >1</span
+                    >
+                    <span
+                        class="hidden md:inline font-bold ml-2 indicator-text text-black"
+                        >Setup</span
+                    >
+                </div>
+                <div class="w-6 md:w-12 h-1 bg-black"></div>
+                <div class="step-indicator" id="ind-2">
+                    <span
+                        class="w-8 h-8 md:w-10 md:h-10 rounded-full border-[3px] border-black flex items-center justify-center font-black text-lg indicator-dot bg-gray-200"
+                        >2</span
+                    >
+                    <span
+                        class="hidden md:inline font-bold ml-2 indicator-text text-gray-500"
+                        >Camera</span
+                    >
+                </div>
+                <div class="w-6 md:w-12 h-1 bg-black"></div>
+                <div class="step-indicator" id="ind-3">
+                    <span
+                        class="w-8 h-8 md:w-10 md:h-10 rounded-full border-[3px] border-black flex items-center justify-center font-black text-lg indicator-dot bg-gray-200"
+                        >3</span
+                    >
+                    <span
+                        class="hidden md:inline font-bold ml-2 indicator-text text-gray-500"
+                        >Customize</span
+                    >
+                </div>
+                <div class="w-6 md:w-12 h-1 bg-black"></div>
+                <div class="step-indicator" id="ind-4">
+                    <span
+                        class="w-8 h-8 md:w-10 md:h-10 rounded-full border-[3px] border-black flex items-center justify-center font-black text-lg indicator-dot bg-gray-200"
+                        >4</span
+                    >
+                    <span
+                        class="hidden md:inline font-bold ml-2 indicator-text text-gray-500"
+                        >Export</span
+                    >
+                </div>
+            </div>
+
+            <!------------------------------------------------------------------------
+                STEP 1: SETUP
+            ------------------------------------------------------------------------->
+            <div id="step-1" class="step-container">
+                <div class="flex flex-col gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Poses Selection -->
+                        <div
+                            class="bg-[#f0f0f0] border-[4px] border-neo-black p-6 shadow-[6px_6px_0_0_#111827] transform -rotate-1 hover:rotate-0 transition-transform"
+                        >
+                            <h3
+                                class="font-black text-xl uppercase mb-4 tracking-widest text-center bg-neo-pink inline-block px-3 py-1 border-[3px] border-neo-black shadow-[3px_3px_0_0_#000]"
+                            >
+                                Jumlah Pose
+                            </h3>
+                            <div
+                                class="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-4"
+                            >
+                                <button
+                                    class="pose-btn bg-white border-[3px] border-black p-3 font-black text-2xl hover:bg-neo-yellow hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none"
+                                    data-val="1">1</button
+                                >
+                                <button
+                                    class="pose-btn bg-white border-[3px] border-black p-3 font-black text-2xl hover:bg-neo-yellow hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none"
+                                    data-val="2">2</button
+                                >
+                                <button
+                                    class="pose-btn bg-neo-yellow border-[3px] border-black p-3 font-black text-2xl hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none focus-btn"
+                                    data-val="3">3</button
+                                >
+                                <button
+                                    class="pose-btn bg-white border-[3px] border-black p-3 font-black text-2xl hover:bg-neo-yellow hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none"
+                                    data-val="4">4</button
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Timer Selection -->
+                        <div
+                            class="bg-[#f0f0f0] border-[4px] border-neo-black p-6 shadow-[6px_6px_0_0_#111827] transform rotate-1 hover:rotate-0 transition-transform"
+                        >
+                            <h3
+                                class="font-black text-xl uppercase mb-4 tracking-widest text-center bg-neo-cyan inline-block px-3 py-1 border-[3px] border-neo-black shadow-[3px_3px_0_0_#000]"
+                            >
+                                Timer Delay
+                            </h3>
+                            <div class="grid grid-cols-3 gap-3 mt-4">
+                                <button
+                                    class="timer-btn bg-neo-yellow border-[3px] border-black py-3 font-black text-lg hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none focus-btn"
+                                    data-val="3">3s</button
+                                >
+                                <button
+                                    class="timer-btn bg-white border-[3px] border-black py-3 font-black text-lg hover:bg-neo-yellow hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none"
+                                    data-val="5">5s</button
+                                >
+                                <button
+                                    class="timer-btn bg-white border-[3px] border-black py-3 font-black text-lg hover:bg-neo-yellow hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none"
+                                    data-val="10">10s</button
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Film Filter Selection -->
+                    <div
+                        class="bg-neo-white border-[4px] border-neo-black p-6 shadow-[8px_8px_0_0_#111827]"
+                    >
+                        <div
+                            class="flex justify-between items-center border-b-4 border-neo-black pb-4 mb-6"
+                        >
+                            <h3
+                                class="font-black text-2xl uppercase tracking-widest text-neo-black"
+                            >
+                                Filter Kamera
+                            </h3>
+                            <span
+                                class="font-mono text-sm font-bold bg-neo-yellow px-2 border-2 border-neo-black"
+                                >5 Opsi Utama</span
+                            >
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <!-- Filters -->
+                            <button
+                                class="filter-btn bg-neo-yellow border-[3px] border-neo-black p-2 hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none focus-btn group"
+                                data-filter="none"
+                                data-name="Original"
+                            >
+                                <div
+                                    class="w-full aspect-square bg-[#ddd] mb-2 border-[3px] border-neo-black flex items-center justify-center font-bold text-gray-500"
+                                >
+                                    N/A
+                                </div>
+                                <span class="font-black text-sm uppercase"
+                                    >Original</span
+                                >
+                            </button>
+                            <button
+                                class="filter-btn bg-white border-[3px] border-neo-black p-2 hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none"
+                                data-filter="grayscale(100%)"
+                                data-name="B&W"
+                            >
+                                <div
+                                    class="w-full aspect-square bg-gray-400 mb-2 border-[3px] border-neo-black filter grayscale transition-all group-hover:grayscale-0"
+                                >
+                                </div>
+                                <span class="font-bold text-sm uppercase"
+                                    >B&W</span
+                                >
+                            </button>
+                            <button
+                                class="filter-btn bg-white border-[3px] border-neo-black p-2 hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none"
+                                data-filter="sepia(100%)"
+                                data-name="Antique"
+                            >
+                                <div
+                                    class="w-full aspect-square bg-amber-200 mb-2 border-[3px] border-neo-black filter sepia"
+                                >
+                                </div>
+                                <span class="font-bold text-sm uppercase"
+                                    >Antique</span
+                                >
+                            </button>
+                            <button
+                                class="filter-btn bg-white border-[3px] border-neo-black p-2 hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none"
+                                data-filter="contrast(1.2) sepia(0.3) saturate(1.5)"
+                                data-name="Warm Retro"
+                            >
+                                <div
+                                    class="w-full aspect-square bg-orange-200 mb-2 border-[3px] border-neo-black"
+                                >
+                                </div>
+                                <span class="font-bold text-sm uppercase"
+                                    >Warm Retro</span
+                                >
+                            </button>
+                            <button
+                                class="filter-btn bg-white border-[3px] border-neo-black p-2 hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none"
+                                data-filter="sepia(60%) hue-rotate(180deg) saturate(2)"
+                                data-name="Cool Tone"
+                            >
+                                <div
+                                    class="w-full aspect-square bg-blue-200 mb-2 border-[3px] border-neo-black"
+                                >
+                                </div>
+                                <span class="font-bold text-sm uppercase"
+                                    >Cool Tone</span
+                                >
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Layout Selection -->
+                    <div
+                        class="bg-neo-white border-[4px] border-neo-black p-6 shadow-[8px_8px_0_0_#111827]"
+                    >
+                        <div
+                            class="flex justify-between items-center border-b-4 border-neo-black pb-4 mb-6"
+                        >
+                            <h3
+                                class="font-black text-2xl uppercase tracking-widest text-neo-black"
+                            >
+                                Layout Cetak
+                            </h3>
+                            <span
+                                class="font-mono text-sm font-bold bg-neo-yellow px-2 border-2 border-neo-black"
+                                >Hanya Strip</span
+                            >
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <!-- Layouts -->
+                            <button
+                                class="layout-btn bg-neo-yellow border-[3px] border-neo-black p-4 hover:-translate-y-1 transition-all shadow-[4px_4px_0_0_#000] active:translate-y-1 active:shadow-none focus-btn"
+                                data-layout="strip"
+                            >
+                                <div
+                                    class="w-12 h-24 bg-gray-200 mx-auto border-4 border-neo-black mb-3 flex flex-col gap-1 p-1"
+                                >
+                                    <div class="w-full h-1/3 bg-black"></div>
+                                    <div class="w-full h-1/3 bg-black"></div>
+                                    <div class="w-full h-1/3 bg-black"></div>
+                                </div>
+                                <span class="font-black text-sm uppercase block"
+                                    >Classic Strip</span
+                                >
+                            </button>
+                            <button
+                                class="layout-btn bg-white border-[3px] border-neo-black p-4 opacity-50 cursor-not-allowed group relative"
+                            >
+                                <div
+                                    class="w-24 h-12 bg-gray-200 mx-auto border-4 border-neo-black mb-3 flex gap-1 p-1"
+                                >
+                                    <div class="w-1/3 h-full bg-black"></div>
+                                    <div class="w-1/3 h-full bg-black"></div>
+                                    <div class="w-1/3 h-full bg-black"></div>
+                                </div>
+                                <span
+                                    class="font-bold text-sm uppercase block text-gray-500"
+                                    >Grid H (Soon)</span
+                                >
+                                <div
+                                    class="absolute inset-0 bg-black/10 flex items-center justify-center -rotate-12"
+                                >
+                                    <span
+                                        class="bg-neo-pink text-white font-black px-2 border-2 border-black"
+                                        >LOCKED</span
+                                    >
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Session Summary -->
+                    <div
+                        class="bg-neo-pink border-[4px] border-neo-black p-6 shadow-[8px_8px_0_0_#111827] transform rotate-1 transition-transform hover:rotate-0"
+                    >
+                        <h3
+                            class="font-black text-xl uppercase mb-4 tracking-widest border-b-4 border-neo-black pb-2 text-neo-black"
+                        >
+                            Ringkasan Sesi
+                        </h3>
+                        <div
+                            class="grid grid-cols-2 gap-4 font-bold text-neo-black text-lg"
+                        >
+                            <div class="flex items-center gap-3">
+                                <i
+                                    class="fa fa-camera bg-white p-2 border-2 border-black"
+                                ></i>
+                                <span id="sum-pose">3 Pose</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i
+                                    class="fa fa-clock bg-white p-2 border-2 border-black"
+                                ></i>
+                                <span id="sum-timer">3s Countdown</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i
+                                    class="fa fa-filter bg-white p-2 border-2 border-black"
+                                ></i>
+                                <span id="sum-filter">Original</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i
+                                    class="fa fa-border-all bg-white p-2 border-2 border-black"
+                                ></i>
+                                <span id="sum-layout">Classic Strip</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <button
+                        id="btn-next-1"
+                        class="bg-neo-black text-neo-white font-black text-3xl py-6 w-full max-w-2xl border-[4px] border-neo-white shadow-[10px_10px_0_0_#ffe500] hover:-translate-y-1 hover:shadow-[12px_12px_0_0_#ffe500] active:translate-y-2 active:shadow-none transition-all uppercase tracking-widest"
+                    >
+                        <i class="fa fa-play-circle mr-3"></i> MULAI SESI
+                    </button>
+                </div>
+            </div>
+
+            <!------------------------------------------------------------------------
+                STEP 2: CAMERA
+            ------------------------------------------------------------------------->
+            <div id="step-2" class="step-container hidden">
+                <div
+                    class="relative w-full max-w-4xl mx-auto bg-neo-black border-[4px] border-neo-black shadow-[8px_8px_0_0_#111827] rounded-sm p-4 md:p-6 flex flex-col gap-6"
+                >
+                    <!-- Viewfinder Area -->
+                    <div
+                        class="relative w-full bg-[#1a1a1a] border-[4px] border-[#333] rounded-sm aspect-[4/3] overflow-hidden flex items-center justify-center"
+                    >
+                        <!-- Retro Crosshairs -->
+                        <div
+                            class="absolute inset-0 pointer-events-none z-10 flex items-center justify-center opacity-30"
+                        >
+                            <div
+                                class="w-full h-[2px] bg-red-500 absolute top-1/2"
+                            >
+                            </div>
+                            <div
+                                class="h-full w-[2px] bg-red-500 absolute left-1/2"
+                            >
+                            </div>
+                            <div
+                                class="w-16 h-16 border-[3px] border-red-500 rounded-full"
+                            >
+                            </div>
+                        </div>
+
+                        <!-- REC Indicator -->
+                        <div
+                            class="absolute top-4 left-4 z-20 flex items-center gap-2 bg-black/60 px-3 py-1 border-[3px] border-neo-black shadow-[2px_2px_0_0_#000]"
+                        >
+                            <div
+                                id="rec-dot"
+                                class="w-3 h-3 bg-red-500 rounded-full"
+                            >
+                            </div>
+                            <span
+                                class="text-red-500 font-mono font-bold tracking-widest text-sm uppercase"
+                                >REC</span
+                            >
+                        </div>
+
+                        <video
+                            id="video"
+                            autoplay
+                            playsinline
+                            class="w-full h-full object-cover filter contrast-125 saturate-110 transform scale-x-[-1]"
+                        ></video>
+                        <div
+                            id="countdown"
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl md:text-9xl font-black text-neo-yellow text-stroke-sm drop-shadow-[0_8px_8px_rgba(0,0,0,1)] z-30"
+                        >
+                        </div>
+                        <div
+                            id="flashEffect"
+                            class="absolute inset-0 bg-white opacity-0 pointer-events-none z-40 transition-opacity duration-75"
+                        >
+                        </div>
+                    </div>
+
+                    <!-- Thumbnail shots -->
+                    <div
+                        class="bg-[#222] p-4 border-[4px] border-[#444] rounded-sm flex gap-4 overflow-x-auto min-h-[140px]"
+                        id="camera-thumbnails"
+                    >
+                        <!-- JS injected -->
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <button
+                            id="btn-back-2"
+                            class="bg-neo-white font-black text-xl py-4 px-6 border-[4px] border-neo-black shadow-[4px_4px_0_0_#000] hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all uppercase"
+                        >
+                            <i class="fa fa-arrow-left"></i>
+                        </button>
+                        <button
+                            id="btn-shoot"
+                            class="flex-1 bg-neo-pink text-neo-black font-black text-2xl py-4 border-[4px] border-neo-black shadow-[6px_6px_0_0_#000] hover:-translate-y-1 hover:shadow-[8px_8px_0_0_#000] active:translate-y-1 active:shadow-none transition-all uppercase tracking-widest"
+                        >
+                            <i class="fa fa-camera-retro mr-2"></i> MULAI SHOOT
+                        </button>
+                        <button
+                            id="btn-next-2"
+                            disabled
+                            class="bg-neo-cyan font-black text-xl py-4 px-8 border-[4px] border-neo-black shadow-[4px_4px_0_0_#000] opacity-50 cursor-not-allowed transition-all uppercase tracking-widest"
+                        >
+                            Lanjut <i class="fa fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!------------------------------------------------------------------------
+                STEP 3: CUSTOMIZE
+            ------------------------------------------------------------------------->
+            <div id="step-3" class="step-container hidden">
+                <div
+                    class="w-full bg-[#111] border-[4px] border-neo-black shadow-[8px_8px_0_0_#111827] p-4 md:p-6 flex flex-col md:flex-row gap-6 rounded-sm"
+                >
+                    <!-- Review Photos (Left Side) -->
+                    <div class="w-full md:w-1/2 flex flex-col gap-4">
+                        <div
+                            class="bg-neo-pink border-[4px] border-neo-black px-4 py-2 transform -rotate-2 shadow-[2px_2px_0_0_#000] w-max"
+                        >
+                            <h2
+                                class="text-xl font-black uppercase tracking-widest text-neo-black"
+                            >
+                                Review Foto
+                            </h2>
+                        </div>
+                        <div
+                            class="grid grid-cols-2 gap-4 bg-[#1a1a1a] border-[4px] border-[#333] p-4 min-h-[400px] content-start"
+                            id="customize-thumbnails"
+                        >
+                        </div>
+                    </div>
+
+                    <!-- Editor Controls (Right Side) -->
+                    <div
+                        class="w-full md:w-1/2 flex flex-col gap-6 bg-[#2a2a2a] border-[4px] border-[#444] p-6 relative"
+                    >
+                        <div
+                            class="absolute -top-4 -right-4 bg-neo-cyan border-[4px] border-neo-black px-4 py-2 transform rotate-3 shadow-[4px_4px_0_0_#000] z-10 hidden md:block"
+                        >
+                            <h2
+                                class="text-xl font-black uppercase tracking-widest text-neo-black"
+                            >
+                                🎨 EDITOR
+                            </h2>
+                        </div>
+
+                        <!-- Frame Select -->
+                        <div class="bg-[#111] border-[4px] border-[#333] p-4">
+                            <span
+                                class="block font-mono font-bold text-neo-yellow text-sm mb-3 uppercase tracking-widest"
+                                >Pilih Frame Custom</span
+                            >
+                            <div class="grid grid-cols-2 gap-3">
+                                <button
+                                    class="frame-btn bg-neo-white text-neo-black font-black py-3 border-[3px] border-neo-black shadow-[4px_4px_0_0_#000] hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all uppercase focus-btn border-neo-yellow"
+                                    data-frame="color">Garis Polos</button
+                                >
+                                <button
+                                    class="frame-btn png-frame bg-[#169d53] text-neo-white font-black py-3 border-[3px] border-neo-black shadow-[4px_4px_0_0_#000] hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all uppercase"
+                                    data-frame="/frames/frame1.png"
+                                    >Retro</button
+                                >
+                                <button
+                                    class="frame-btn png-frame bg-[#e5e6d9] text-neo-black font-black py-3 border-[3px] border-neo-black shadow-[4px_4px_0_0_#000] hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all uppercase"
+                                    data-frame="/frames/frame2.png"
+                                    >Classic</button
+                                >
+                                <button
+                                    class="frame-btn png-frame bg-[#272323] text-neo-white font-black py-3 border-[3px] border-neo-black shadow-[4px_4px_0_0_#000] hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all uppercase"
+                                    data-frame="/frames/frame3.png">Dark</button
+                                >
+                            </div>
+                            <p
+                                id="pose-warning"
+                                class="hidden text-red-500 font-bold text-xs mt-3 bg-red-100/10 p-2 border border-red-500"
+                            >
+                                *Frame Retro/Classic/Dark hanya kompatibel untuk
+                                sesi 3 Pose.
+                            </p>
+                        </div>
+
+                        <!-- Color Grade -->
+                        <div
+                            class="bg-[#111] border-[4px] border-[#333] p-4"
+                            id="color-section"
+                        >
+                            <span
+                                class="block font-mono font-bold text-neo-yellow text-sm mb-3 uppercase tracking-widest"
+                                >Warna Background Polos</span
+                            >
+                            <div class="flex gap-4">
+                                <input
+                                    type="color"
+                                    id="customColorPicker"
+                                    value="#ffffff"
+                                    class="w-full h-16 border-[4px] border-[#333] cursor-pointer bg-transparent p-1 shadow-[4px_4px_0_0_#000] hover:-translate-y-1 transition-all"
+                                />
+                            </div>
+                            <p class="text-xs font-mono text-gray-500 mt-2">
+                                *Hanya aktif jika menggunakan frame "Garis
+                                Polos"
+                            </p>
+                        </div>
+
+                        <div class="flex-grow"></div>
+
+                        <div class="flex gap-4 mt-8">
+                            <button
+                                id="btn-back-3"
+                                class="bg-neo-white font-black text-xl py-4 px-6 border-[4px] border-neo-black shadow-[4px_4px_0_0_#000] hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all uppercase"
+                            >
+                                <i class="fa fa-arrow-left"></i>
+                            </button>
+                            <button
+                                id="btn-next-3"
+                                class="flex-1 bg-neo-yellow text-neo-black font-black text-xl md:text-2xl py-4 px-6 border-[4px] border-neo-black shadow-[6px_6px_0_0_#000] hover:-translate-y-1 active:translate-y-1 active:shadow-none transition-all uppercase tracking-widest"
+                            >
+                                Rendering <i class="fa fa-check ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!------------------------------------------------------------------------
+                STEP 4: EXPORT
+            ------------------------------------------------------------------------->
+            <div id="step-4" class="step-container hidden">
+                <div
+                    class="w-full bg-[#111] border-[4px] border-neo-black shadow-[8px_8px_0_0_#111827] p-4 md:p-8 flex flex-col md:flex-row gap-8 rounded-sm"
+                >
+                    <!-- Canvas Result (Left) -->
+                    <div
+                        class="w-full md:w-2/3 flex justify-center items-center bg-[#1a1a1a] border-[4px] border-[#333] overflow-hidden relative min-h-[500px] py-8"
+                    >
+                        <div
+                            class="absolute inset-0 pointer-events-none"
+                            style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, #000 2px, #000 4px); opacity: 0.1;"
+                        >
+                        </div>
+                        <canvas
+                            id="finalCanvas"
+                            class="max-w-[80%] h-auto object-contain shadow-[12px_12px_0_0_#FFEBB2] border-[4px] border-neo-black"
+                        ></canvas>
+                    </div>
+
+                    <!-- Final Action Panel (Right) -->
+                    <div
+                        class="w-full md:w-1/3 flex flex-col justify-center gap-6 bg-[#2a2a2a] border-[4px] border-[#444] p-6 relative"
+                    >
+                        <h2
+                            class="text-3xl font-black uppercase text-neo-white mb-4 tracking-wider text-center"
+                        >
+                            Done! 🎉
+                        </h2>
+
+                        <p class="text-center text-gray-400 font-bold mb-8">
+                            Memori telah berhasil diabadikan. Unduh sekarang
+                            juga.
+                        </p>
+
+                        <a
+                            id="downloadBtn"
+                            download="kuzupost-photostrip.png"
+                            class="w-full block text-center bg-neo-cyan text-neo-black font-black text-2xl py-5 border-[4px] border-neo-black shadow-[6px_6px_0_0_#000] hover:shadow-[10px_10px_0_0_#000] hover:-translate-y-2 active:shadow-none active:translate-y-2 transition-all uppercase tracking-widest"
+                        >
+                            <i class="fa fa-download mr-3 text-3xl"></i> UNDUH
+                        </a>
+
+                        <button
+                            id="btn-retake"
+                            class="w-full mt-4 bg-neo-pink text-neo-black font-black text-xl py-4 border-[4px] border-neo-black shadow-[4px_4px_0_0_#000] hover:shadow-[6px_6px_0_0_#000] hover:-translate-y-1 active:shadow-none active:translate-y-2 transition-all uppercase tracking-widest"
+                        >
+                            <i class="fa fa-rotate-left mr-2"></i> FOTO ULANG
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden canvas for capturing video frames -->
+            <canvas id="captureCanvas" class="hidden"></canvas>
+        </div>
+    </div>
+
+    <!-- MAIN SPA SCRIPT -->
+    <script is:inline>
+        document.addEventListener("DOMContentLoaded", () => {
+            let currentStep = 1;
+            let poseCount = 3;
+            let timerDelay = 3;
+            let photos = [];
+            let stream = null;
+            let isShooting = false;
+            let currentShot = 0;
+            let bgColor = "#ffffff";
+            let frameChoice = "color";
+            let customFrameSrc = "";
+            let selectedFilter = "none";
+            let selectedFilterName = "Original";
+            let selectedLayout = "strip";
+
+            /* --- Elements --- */
+            const steps = [
+                document.getElementById("step-1"),
+                document.getElementById("step-2"),
+                document.getElementById("step-3"),
+                document.getElementById("step-4"),
+            ];
+            const indicators = [
+                document.getElementById("ind-1"),
+                document.getElementById("ind-2"),
+                document.getElementById("ind-3"),
+                document.getElementById("ind-4"),
+            ];
+            const stepDesc = document.getElementById("step-desc");
+            const sumPose = document.getElementById("sum-pose");
+            const sumTimer = document.getElementById("sum-timer");
+            const sumFilter = document.getElementById("sum-filter");
+            const sumLayout = document.getElementById("sum-layout");
+
+            /* --- Steps Navigation --- */
+            function showStep(s) {
+                // Hide all
+                steps.forEach((el) => el.classList.add("hidden"));
+                indicators.forEach((el) => {
+                    const dot = el.querySelector(".indicator-dot");
+                    const text = el.querySelector(".indicator-text");
+                    dot.classList.remove("bg-neo-yellow", "bg-gray-200");
+                    text.classList.remove("text-black", "text-gray-500");
+                });
+
+                currentStep = s;
+
+                // Show current container with simple fade
+                steps[currentStep - 1].classList.remove("hidden");
+
+                // Active indicators
+                for (let i = 0; i < 4; i++) {
+                    const dot = indicators[i].querySelector(".indicator-dot");
+                    const text = indicators[i].querySelector(".indicator-text");
+                    if (i < currentStep) {
+                        dot.classList.add("bg-neo-yellow");
+                        text.classList.add("text-black");
+                    } else {
+                        dot.classList.add("bg-gray-200");
+                        text.classList.add("text-gray-500");
+                    }
+                }
+
+                // Header
+                if (s === 1) stepDesc.innerText = "Langkah 1: Atur Sesi Foto";
+                if (s === 2)
+                    stepDesc.innerText = "Langkah 2: Ambil Pose Terbaikmu!";
+                if (s === 3)
+                    stepDesc.innerText = "Langkah 3: Percantik dengan Frame";
+                if (s === 4)
+                    stepDesc.innerText = "Langkah 4: Unduh Strip Foto Kamu";
+
+                // Step triggers
+                if (s === 2) initCamera();
+                else stopCamera();
+
+                if (s === 3) prepareCustomize();
+                if (s === 4) renderFinalCanvas();
+            }
+
+            /* --- Step 1: Setup --- */
+            const poseBtns = document.querySelectorAll(".pose-btn");
+            const timerBtns = document.querySelectorAll(".timer-btn");
+            const filterBtns = document.querySelectorAll(".filter-btn");
+
+            poseBtns.forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    poseBtns.forEach((b) =>
+                        b.classList.replace("bg-neo-yellow", "bg-white"),
+                    );
+                    poseBtns.forEach((b) => b.classList.remove("focus-btn"));
+                    const tgt = e.currentTarget;
+                    tgt.classList.replace("bg-white", "bg-neo-yellow");
+                    tgt.classList.add("focus-btn");
+                    poseCount = parseInt(tgt.getAttribute("data-val"));
+                    sumPose.innerHTML = `${poseCount} Pose`;
+                });
+            });
+
+            timerBtns.forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    timerBtns.forEach((b) =>
+                        b.classList.replace("bg-neo-yellow", "bg-white"),
+                    );
+                    timerBtns.forEach((b) => b.classList.remove("focus-btn"));
+                    const tgt = e.currentTarget;
+                    tgt.classList.replace("bg-white", "bg-neo-yellow");
+                    tgt.classList.add("focus-btn");
+                    timerDelay = parseInt(tgt.getAttribute("data-val"));
+                    sumTimer.innerHTML = `${timerDelay}s Countdown`;
+                });
+            });
+
+            filterBtns.forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    filterBtns.forEach((b) => {
+                        b.classList.replace("bg-neo-yellow", "bg-white");
+                        b.classList.replace(
+                            "border-neo-yellow",
+                            "border-neo-black",
+                        );
+                        b.classList.remove("focus-btn");
+                    });
+                    const tgt = e.currentTarget;
+                    tgt.classList.replace("bg-white", "bg-neo-yellow");
+                    tgt.classList.replace(
+                        "border-neo-black",
+                        "border-neo-yellow",
+                    );
+                    tgt.classList.add("focus-btn");
+                    selectedFilter = tgt.getAttribute("data-filter");
+                    selectedFilterName = tgt.getAttribute("data-name");
+                    sumFilter.innerHTML = selectedFilterName;
+                });
+            });
+
+            document
+                .getElementById("btn-next-1")
+                .addEventListener("click", () => showStep(2));
+
+            /* --- Step 2: Camera --- */
+            const video = document.getElementById("video");
+            const countdownEl = document.getElementById("countdown");
+            const flashEffect = document.getElementById("flashEffect");
+            const recDot = document.getElementById("rec-dot");
+            const thumbContainer = document.getElementById("camera-thumbnails");
+            const btnShoot = document.getElementById("btn-shoot");
+            const btnNext2 = document.getElementById("btn-next-2");
+            const captureCanvas = document.getElementById("captureCanvas");
+
+            async function initCamera() {
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({
+                        video: { width: 1280, height: 720, facingMode: "user" },
+                        audio: false,
+                    });
+                    video.srcObject = stream;
+
+                    // Apply Selected Filter CSS to Camera Viewfinder Look
+                    if (selectedFilter !== "none") {
+                        video.style.filter = `contrast(1.25) saturate(1.1) ${selectedFilter}`;
+                    } else {
+                        video.style.filter = "contrast(1.25) saturate(1.1)";
+                    }
+
+                    photos = [];
+                    currentShot = 0;
+                    isShooting = false;
+                    btnNext2.disabled = true;
+                    btnNext2.classList.replace("opacity-100", "opacity-50");
+                    btnNext2.classList.replace(
+                        "cursor-pointer",
+                        "cursor-not-allowed",
+                    );
+                    btnShoot.disabled = false;
+                    btnShoot.classList.replace("opacity-50", "opacity-100");
+                    countdownEl.innerText = "";
+
+                    thumbContainer.innerHTML = "";
+                    for (let i = 0; i < poseCount; i++) {
+                        const div = document.createElement("div");
+                        div.className =
+                            "w-24 h-24 md:w-32 md:h-32 bg-black border-[3px] border-[#555] flex items-center justify-center font-bold text-[#555] text-4xl flex-shrink-0";
+                        div.innerText = i + 1;
+                        thumbContainer.appendChild(div);
+                    }
+                } catch (err) {
+                    console.error("Camera Error:", err);
+                    alert("Izinkan kamera untuk memulai sesi foto!");
+                }
+            }
+
+            function stopCamera() {
+                if (stream) {
+                    stream.getTracks().forEach((t) => t.stop());
+                    stream = null;
+                }
+            }
+
+            document
+                .getElementById("btn-back-2")
+                .addEventListener("click", () => showStep(1));
+
+            btnShoot.addEventListener("click", async () => {
+                if (isShooting) return;
+                isShooting = true;
+                btnShoot.disabled = true;
+                btnShoot.classList.replace("opacity-100", "opacity-50");
+
+                recDot.classList.add("animate-ping");
+
+                for (let i = 0; i < poseCount; i++) {
+                    currentShot = i;
+                    await wait(800);
+                    await runCountdown(timerDelay);
+                    takePhoto();
+                    updateCameraThumbnails();
+                }
+
+                recDot.classList.remove("animate-ping");
+                countdownEl.innerText = "DONE!";
+
+                btnNext2.disabled = false;
+                btnNext2.classList.replace("opacity-50", "opacity-100");
+                btnNext2.classList.replace(
+                    "cursor-not-allowed",
+                    "cursor-pointer",
+                );
+
+                setTimeout(() => {
+                    showStep(3);
+                }, 1500);
+            });
+
+            function wait(ms) {
+                return new Promise((r) => setTimeout(r, ms));
+            }
+
+            function runCountdown(seconds) {
+                return new Promise((resolve) => {
+                    let counter = seconds;
+                    countdownEl.innerText = counter;
+                    const iv = setInterval(() => {
+                        counter--;
+                        if (counter > 0) {
+                            countdownEl.innerText = counter;
+                        } else {
+                            clearInterval(iv);
+                            countdownEl.innerText = "";
+                            resolve();
+                        }
+                    }, 1000);
+                });
+            }
+
+            function takePhoto() {
+                flashEffect.style.opacity = "1";
+                setTimeout(() => (flashEffect.style.opacity = "0"), 100);
+
+                captureCanvas.width = video.videoWidth;
+                captureCanvas.height = video.videoHeight;
+                const ctx = captureCanvas.getContext("2d");
+
+                // Apply CSS Filter Equivalent directly to the 2D Context before drawing the source
+                if (selectedFilter !== "none") {
+                    ctx.filter =
+                        selectedFilter + " contrast(1.25) saturate(1.1)";
+                } else {
+                    ctx.filter = "contrast(1.25) saturate(1.1)";
+                }
+
+                ctx.translate(captureCanvas.width, 0);
+                ctx.scale(-1, 1);
+                ctx.drawImage(
+                    video,
+                    0,
+                    0,
+                    captureCanvas.width,
+                    captureCanvas.height,
+                );
+
+                // Reset filter for next time
+                ctx.filter = "none";
+
+                photos.push(captureCanvas.toDataURL("image/png"));
+            }
+
+            function updateCameraThumbnails() {
+                const thumbs = thumbContainer.children;
+                if (thumbs[currentShot]) {
+                    thumbs[currentShot].innerText = "";
+                    thumbs[currentShot].style.backgroundImage =
+                        `url(${photos[currentShot]})`;
+                    thumbs[currentShot].style.backgroundSize = "cover";
+                    thumbs[currentShot].style.backgroundPosition = "center";
+                    thumbs[currentShot].classList.replace(
+                        "border-[#555]",
+                        "border-neo-yellow",
+                    );
+                }
+            }
+
+            document
+                .getElementById("btn-next-2")
+                .addEventListener("click", () => showStep(3));
+
+            /* --- Step 3: Customize --- */
+            const custThumbContainer = document.getElementById(
+                "customize-thumbnails",
+            );
+            const colorPicker = document.getElementById("customColorPicker");
+            const frameBtns = document.querySelectorAll(".frame-btn");
+            const pngFrameBtns = document.querySelectorAll(".png-frame");
+            const poseWarning = document.getElementById("pose-warning");
+
+            function prepareCustomize() {
+                custThumbContainer.innerHTML = "";
+                photos.forEach((src, i) => {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.className =
+                        "w-full aspect-[4/3] object-cover border-[4px] border-neo-white shadow-[4px_4px_0_0_#000] transform hover:scale-105 transition-transform cursor-pointer";
+                    img.style.transform =
+                        i % 2 === 0 ? "rotate(-2deg)" : "rotate(2deg)";
+                    custThumbContainer.appendChild(img);
+                });
+
+                if (poseCount !== 3) {
+                    pngFrameBtns.forEach((btn) => {
+                        btn.classList.add("opacity-50", "pointer-events-none");
+                        btn.classList.remove(
+                            "hover:-translate-y-1",
+                            "active:translate-y-1",
+                        );
+                    });
+                    poseWarning.classList.remove("hidden");
+                    document
+                        .querySelector('.frame-btn[data-frame="color"]')
+                        .click();
+                } else {
+                    pngFrameBtns.forEach((btn) => {
+                        btn.classList.remove(
+                            "opacity-50",
+                            "pointer-events-none",
+                        );
+                        btn.classList.add(
+                            "hover:-translate-y-1",
+                            "active:translate-y-1",
+                        );
+                    });
+                    poseWarning.classList.add("hidden");
+                }
+            }
+
+            colorPicker.addEventListener("change", (e) => {
+                if (frameChoice === "color") bgColor = e.target.value;
+            });
+
+            frameBtns.forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    frameBtns.forEach((b) =>
+                        b.classList.remove("focus-btn", "border-neo-yellow"),
+                    );
+                    const tgt = e.currentTarget;
+                    tgt.classList.add("focus-btn", "border-neo-yellow");
+
+                    frameChoice = tgt.getAttribute("data-frame");
+                    if (frameChoice !== "color") {
+                        customFrameSrc = frameChoice;
+                        if (customFrameSrc.includes("frame1.png"))
+                            bgColor = "#169d53";
+                        if (customFrameSrc.includes("frame2.png"))
+                            bgColor = "#e5e6d9";
+                        if (customFrameSrc.includes("frame3.png"))
+                            bgColor = "#272323";
+                        colorPicker.value = bgColor;
+                    }
+                });
+            });
+
+            document
+                .getElementById("btn-back-3")
+                .addEventListener("click", () => {
+                    if (
+                        confirm(
+                            "Tindakan ini akan menghapus foto saat ini. Anda harus foto ulang. Lanjutkan?",
+                        )
+                    )
+                        showStep(2);
+                });
+
+            document
+                .getElementById("btn-next-3")
+                .addEventListener("click", () => showStep(4));
+
+            /* --- Step 4: Export (Rendering) --- */
+            const finalCanvas = document.getElementById("finalCanvas");
+            const downloadBtn = document.getElementById("downloadBtn");
+            const fCtx = finalCanvas.getContext("2d");
+
+            function renderFinalCanvas() {
+                // Dimensions & Measurements
+                const photoWidth = 1080;
+                const photoHeight = 720;
+                const sideThickness = 120;
+                const topThickness = 120;
+                const bottomThickness = 0;
+                const extraBottom = 632;
+
+                const totalWidth = photoWidth + sideThickness * 2;
+                const totalHeightPerPhoto =
+                    topThickness + photoHeight + bottomThickness;
+                const canvasHeight =
+                    totalHeightPerPhoto * poseCount + extraBottom;
+
+                finalCanvas.width = totalWidth;
+                finalCanvas.height = canvasHeight;
+
+                fCtx.fillStyle = bgColor;
+                fCtx.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
+
+                let loaded = 0;
+                const loadedImages = [];
+
+                function composeAllImages(frameImg = null) {
+                    for (let j = 0; j < poseCount; j++) {
+                        let img = loadedImages[j];
+
+                        let sx = 0,
+                            sy = 0,
+                            sWidth = img.width,
+                            sHeight = img.height;
+                        const targetRatio = photoWidth / photoHeight;
+                        const imgRatio = img.width / img.height;
+
+                        if (imgRatio > targetRatio) {
+                            sHeight = img.height;
+                            sWidth = sHeight * targetRatio;
+                            sx = (img.width - sWidth) / 2;
+                        } else {
+                            sWidth = img.width;
+                            sHeight = sWidth / targetRatio;
+                            sy = (img.height - sHeight) / 2;
+                        }
+
+                        const offsetY = j * totalHeightPerPhoto;
+                        fCtx.drawImage(
+                            img,
+                            sx,
+                            sy,
+                            sWidth,
+                            sHeight,
+                            sideThickness,
+                            offsetY + topThickness,
+                            photoWidth,
+                            photoHeight,
+                        );
+                    }
+
+                    if (frameImg) {
+                        // Optional: Scale frame if it was designed only for 3 poses
+                        fCtx.drawImage(
+                            frameImg,
+                            0,
+                            0,
+                            finalCanvas.width,
+                            finalCanvas.height,
+                        );
+                    }
+
+                    downloadBtn.href = finalCanvas.toDataURL("image/png");
+                }
+
+                let frameImgObj = null;
+                photos.forEach((dataUrl, i) => {
+                    const img = new Image();
+                    img.src = dataUrl;
+                    img.onload = () => {
+                        loadedImages[i] = img;
+                        loaded++;
+                        if (loaded === poseCount) {
+                            if (frameChoice !== "color" && customFrameSrc) {
+                                frameImgObj = new Image();
+                                frameImgObj.src = customFrameSrc;
+                                frameImgObj.onload = () =>
+                                    composeAllImages(frameImgObj);
+                                frameImgObj.onerror = () => composeAllImages();
+                            } else {
+                                composeAllImages();
+                            }
+                        }
+                    };
+                });
+            }
+
+            document
+                .getElementById("btn-retake")
+                .addEventListener("click", () => {
+                    if (confirm("Buang foto ini dan buat yang baru?"))
+                        showStep(1);
+                });
+
+            // Init
+            showStep(1);
+        });
+    </script>
+</Layout>

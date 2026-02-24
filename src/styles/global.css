@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neo-yellow: #facc15;
+  --color-neo-pink: #f472b6;
+  --color-neo-cyan: #22d3ee;
+  --color-neo-bg: #FFEBB2; /* Soft retro yellow bg */
+  --color-neo-black: #111827;
+  --color-neo-white: #ffffff;
+  
+  --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer base {
+  body {
+    @apply font-sans min-h-screen relative bg-neo-bg text-neo-black overflow-x-hidden;
+    /* V2 Grid Pattern Background */
+    background-image: linear-gradient(var(--color-neo-black) 2px, transparent 2px), linear-gradient(90deg, var(--color-neo-black) 2px, transparent 2px);
+    background-size: 40px 40px;
+    background-color: var(--color-neo-bg);
+  }
+}
+
+@layer utilities {
+  .neo-shadow {
+    box-shadow: 4px 4px 0 0 var(--color-neo-black);
+  }
+  .neo-shadow-lg {
+    box-shadow: 6px 6px 0 0 var(--color-neo-black);
+  }
+  .neo-shadow-xl {
+    box-shadow: 8px 8px 0 0 var(--color-neo-black);
+  }
+  .neo-border {
+    border: 3px solid var(--color-neo-black);
+  }
+  
+  /* Text Stroke for massive headers */
+  .text-stroke {
+    -webkit-text-stroke: 2px var(--color-neo-black);
+    color: transparent;
+  }
+  .text-stroke-white {
+    -webkit-text-stroke: 2px var(--color-neo-black);
+    color: var(--color-neo-white);
+  }
+  
+  .neo-card {
+    @apply bg-neo-white transition-all duration-200 transform hover:-translate-y-1 hover:-translate-x-1;
+    border: 3px solid var(--color-neo-black);
+    box-shadow: 6px 6px 0 0 var(--color-neo-black);
+  }
+  
+  .neo-card:hover {
+    box-shadow: 10px 10px 0 0 var(--color-neo-black);
+  }
+  
+  .neo-button {
+    @apply inline-flex items-center justify-center bg-neo-pink text-neo-black font-black py-2 px-6 transition-all duration-100 uppercase tracking-widest cursor-pointer;
+    border: 3px solid var(--color-neo-black);
+    box-shadow: 4px 4px 0 0 var(--color-neo-black);
+    transform: translate(0, 0);
+  }
+  
+  .neo-button:hover {
+    box-shadow: 6px 6px 0 0 var(--color-neo-black);
+    transform: translate(-1px, -1px);
+  }
+  
+  .neo-button:active {
+    box-shadow: 0 0 0 0 var(--color-neo-black);
+    transform: translate(4px, 4px);
+  }
+  
+  .neo-input {
+    @apply bg-neo-white p-3 focus:outline-none focus:ring-[3px] focus:ring-neo-cyan transition-shadow font-bold text-base bg-emerald-50;
+    border: 3px solid var(--color-neo-black);
+    box-shadow: 4px 4px 0 0 var(--color-neo-black);
+  }
+
+  .neo-input:focus {
+    box-shadow: 6px 6px 0 0 var(--color-neo-black);
+    transform: translate(-1px, -1px);
+  }
+  
+  .neo-glass {
+    @apply bg-white/80 backdrop-blur-md;
+    border: 3px solid var(--color-neo-black);
+    box-shadow: 6px 6px 0 0 var(--color-neo-black);
+  }
+
+  /* Marquee Animations */
+  .marquee-container {
+    @apply overflow-hidden whitespace-nowrap bg-neo-yellow border-y-[3px] border-neo-black py-2 flex;
+  }
+  
+  .marquee-content {
+    @apply inline-block font-black text-xl uppercase tracking-widest;
+    animation: marquee 15s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+}

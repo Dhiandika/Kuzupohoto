@@ -1,0 +1,96 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Kuzupost PhotoStrips - Contact">
+    <div
+        class="relative min-h-[80vh] flex flex-col items-center justify-center py-16 px-4 md:px-6 overflow-hidden bg-neo-cyan"
+    >
+        <!-- Grid Background -->
+        <div
+            class="absolute inset-0 z-0 pointer-events-none"
+            style="background-image: repeating-linear-gradient(45deg, #111827 25%, transparent 25%, transparent 75%, #111827 75%, #111827), repeating-linear-gradient(45deg, #111827 25%, #ffffff 25%, #ffffff 75%, #111827 75%, #111827); background-position: 0 0, 10px 10px; background-size: 20px 20px; opacity: 0.1;"
+        >
+        </div>
+
+        <div
+            class="relative z-10 w-full max-w-4xl flex flex-col items-center mt-10"
+        >
+            <h1
+                class="inline-block bg-neo-black text-neo-white font-black text-lg py-3 px-6 border-4 border-neo-white shadow-[4px_4px_0_0_#111827] hover:shadow-[6px_6px_0_0_#111827] hover:-translate-y-1 active:shadow-none active:translate-y-2 transition-all uppercase tracking-widest mt-6"
+            >
+                <i class="fa fa-envelope mr-3 text-neo-cyan"></i>Hubungi Kami
+            </h1>
+
+            <div class="w-full flex flex-col md:flex-row gap-12 mt-8">
+                <!-- Text Section -->
+                <div class="w-full md:w-1/2">
+                    <div
+                        class="bg-neo-yellow border-[6px] border-neo-black p-8 shadow-[12px_12px_0_0_#111827] transform -rotate-2"
+                    >
+                        <h2
+                            class="text-3xl font-black uppercase mb-4 text-stroke"
+                        >
+                            Sapa Kami!
+                        </h2>
+                        <p
+                            class="text-xl font-bold leading-relaxed border-l-[8px] border-neo-black pl-4 bg-white/50 p-4"
+                        >
+                            Punya pertanyaan, butuh bantuan, atau sekadar ingin
+                            mengobrol tentang kenangan yang baru saja Anda
+                            cetak? Jangan ragu untuk menghubungi kami melalui
+                            saluran di bawah ini.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Links Section -->
+                <div class="w-full md:w-1/2 flex flex-col gap-6">
+                    <a
+                        href="mailto:contact@example.com"
+                        class="group relative block"
+                    >
+                        <div
+                            class="absolute inset-0 bg-neo-black transform translate-x-3 translate-y-3 z-0"
+                        >
+                        </div>
+                        <div
+                            class="relative z-10 bg-neo-pink border-[6px] border-neo-black p-6 flex items-center justify-between group-hover:-translate-y-2 group-hover:-translate-x-2 transition-transform"
+                        >
+                            <span
+                                class="text-2xl font-black uppercase text-stroke-white tracking-widest"
+                                >Email</span
+                            >
+                            <i
+                                class="fa fa-envelope text-4xl transform group-hover:rotate-12 transition-transform"
+                            ></i>
+                        </div>
+                    </a>
+
+                    <a
+                        href="https://instagram.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group relative block"
+                    >
+                        <div
+                            class="absolute inset-0 bg-neo-black transform translate-x-3 translate-y-3 z-0"
+                        >
+                        </div>
+                        <div
+                            class="relative z-10 bg-neo-white border-[6px] border-neo-black p-6 flex items-center justify-between group-hover:-translate-y-2 group-hover:-translate-x-2 transition-transform"
+                        >
+                            <span
+                                class="text-2xl font-black uppercase text-stroke tracking-widest text-neo-white"
+                                >Instagram</span
+                            >
+                            <i
+                                class="fa-brands fa-instagram text-4xl transform group-hover:-rotate-12 transition-transform"
+                            ></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

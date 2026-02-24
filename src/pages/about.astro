@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Kuzupost PhotoStrips - About">
+    <div
+        class="relative min-h-[80vh] flex flex-col items-center justify-center py-16 px-4 md:px-6 overflow-hidden bg-neo-pink"
+    >
+        <!-- Grid Background -->
+        <div
+            class="absolute inset-0 z-0 pointer-events-none"
+            style="background-image: linear-gradient(#111827 4px, transparent 4px), linear-gradient(90deg, #111827 4px, transparent 4px); background-size: 60px 60px; opacity: 0.15;"
+        >
+        </div>
+
+        <div class="relative z-10 w-full max-w-4xl flex flex-col items-center">
+            <h1
+                class="text-4xl md:text-5xl font-black uppercase text-neo-white bg-neo-black inline-block px-6 py-3 border-4 border-neo-white shadow-[8px_8px_0_0_#ffb6c1] transform -rotate-1 mb-8 hover:rotate-0 transition-transform cursor-pointer"
+            >
+                <i class="fa fa-users mr-3 text-neo-pink"></i>Tentang Kami
+            </h1>
+
+            <div class="w-full space-y-12">
+                <!-- Card 1 -->
+                <div
+                    class="bg-neo-yellow border-[6px] border-neo-black p-8 md:p-12 shadow-[16px_16px_0_0_#111827] transform rotate-2 hover:-rotate-1 hover:-translate-y-2 hover:shadow-[24px_24px_0_0_#111827] transition-all relative"
+                >
+                    <div
+                        class="absolute -top-6 -left-6 w-12 h-12 bg-neo-cyan border-4 border-neo-black rounded-full animate-bounce"
+                    >
+                    </div>
+
+                    <h2
+                        class="text-4xl md:text-5xl font-black uppercase mb-6 flex flex-wrap items-center gap-4 text-stroke"
+                    >
+                        <span class="bg-neo-black text-neo-white p-2"
+                            >Siapa</span
+                        > Kami?
+                    </h2>
+                    <p
+                        class="text-xl md:text-2xl font-bold leading-relaxed border-l-[12px] border-neo-black pl-6 bg-white/70 p-6 shadow-[8px_8px_0_0_#111827]"
+                    >
+                        Kuzupost PhotoStrips hadir untuk membawa kenangan klasik
+                        gaya photo booth langsung ke browser Anda. Kami percaya
+                        bahwa setiap momen pantas dirayakan dengan gaya
+                        nostalgia yang seru dan tanpa batas.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="w-full max-w-4xl bg-neo-white border-4 border-neo-black shadow-[8px_8px_0_0_#111827] p-6 md:p-8 space-y-8 transform -rotate-1 hover:rotate-1 hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#111827] transition-all relative"
+                >
+                    <h2
+                        class="text-4xl md:text-5xl font-black uppercase mb-6 text-right w-full block"
+                    >
+                        Visi <span
+                            class="bg-neo-pink text-neo-black p-2 border-4 border-neo-black"
+                            >Misi</span
+                        >
+                    </h2>
+                    <p
+                        class="text-xl md:text-2xl font-black bg-neo-pink p-3 border-4 border-neo-black shadow-[-4px_4px_0_0_#111827] mb-6 transform rotate-1"
+                    >
+                        Menjadikan web sebagai tempat interaktif untuk mencetak
+                        kenangan. Tidak perlu hardware khusus, cukup senyum ke
+                        webcam Anda, hiasi dengan gaya retro, dan simpan
+                        hasilnya selamanya.
+                    </p>
+                </div>
+
+                <div class="flex justify-center mt-12">
+                    <button
+                        onclick="window.history.back();"
+                        class="inline-block bg-neo-black text-neo-white font-black text-lg py-3 px-6 border-4 border-neo-white shadow-[4px_4px_0_0_#111827] hover:shadow-[6px_6px_0_0_#111827] hover:-translate-y-1 active:shadow-none active:translate-y-2 transition-all uppercase tracking-widest"
+                    >
+                        Hubungi Kami <i class="fa fa-envelope ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

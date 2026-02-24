@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Kuzupost PhotoStrips - Privacy Policy">
+    <div
+        class="relative min-h-[80vh] flex flex-col items-center py-16 px-4 md:px-6 overflow-hidden bg-neo-white"
+    >
+        <!-- Background accents -->
+        <div
+            class="absolute inset-0 z-0 pointer-events-none"
+            style="background-image: radial-gradient(#111827 2px, transparent 2px); background-size: 30px 30px; opacity: 0.1;"
+        >
+        </div>
+
+        <div class="relative z-10 w-full max-w-4xl flex flex-col items-center">
+            <h1
+                class="text-4xl md:text-5xl font-black uppercase text-neo-black bg-neo-cyan inline-block px-6 py-3 border-4 border-neo-black shadow-[8px_8px_0_0_#111827] transform -rotate-1 mb-8 hover:rotate-0 transition-transform cursor-pointer text-center"
+            >
+                <i class="fa fa-shield-halved mr-3"></i>PRIVACY POLICY
+            </h1>
+
+            <div
+                class="w-full bg-neo-white border-4 border-neo-black p-6 md:p-8 shadow-[8px_8px_0_0_#111827] space-y-6 relative"
+            >
+                <!-- Decorative element -->
+                <div
+                    class="absolute -top-6 -right-6 w-16 h-16 bg-neo-pink border-4 border-neo-black transform rotate-12"
+                >
+                </div>
+
+                <div
+                    class="prose prose-lg max-w-none text-neo-black font-bold font-mono"
+                >
+                    <p
+                        class="text-2xl font-black bg-neo-yellow p-4 border-4 border-neo-black shadow-[4px_4px_0_0_#111827] mb-8 transform -rotate-1"
+                    >
+                        Privasi Anda adalah nomor satu (setelah hasil foto yang
+                        bagus, tentu saja).
+                    </p>
+
+                    <h2
+                        class="text-3xl font-black uppercase border-b-4 border-neo-black pb-2 inline-block mb-4 mt-8"
+                    >
+                        1. Pengumpulan Data
+                    </h2>
+                    <p
+                        class="leading-relaxed bg-black/5 p-4 border-l-[8px] border-neo-cyan"
+                    >
+                        Kuzupost PhotoStrips beroperasi sepenuhnya di browser
+                        Anda. Kami <strong>tidak</strong> menyimpan gambar atau video
+                        Anda di server kami. Semua pemrosesan filter dan penggabungan
+                        strip foto dilakukan secara lokal di perangkat Anda.
+                    </p>
+
+                    <h2
+                        class="text-3xl font-black uppercase border-b-4 border-neo-black pb-2 inline-block mb-4 mt-8"
+                    >
+                        2. Penggunaan Kamera
+                    </h2>
+                    <p
+                        class="leading-relaxed bg-black/5 p-4 border-l-[8px] border-neo-pink"
+                    >
+                        Aplikasi ini memerlukan akses ke kamera perangkat Anda
+                        (webcam) semata-mata untuk tujuan mengambil foto secara
+                        real-time yang akan dirangkai menjadi photo strip.
+                        Aliran video tidak pernah dikirimkan atau dipantau oleh
+                        kami.
+                    </p>
+
+                    <h2
+                        class="text-3xl font-black uppercase border-b-4 border-neo-black pb-2 inline-block mb-4 mt-8"
+                    >
+                        3. Penyimpanan Lokal
+                    </h2>
+                    <p
+                        class="leading-relaxed bg-black/5 p-4 border-l-[8px] border-neo-yellow"
+                    >
+                        Kami mungkin menggunakan Penyimpanan Lokal (Local
+                        Storage) browser Anda secara eksklusif untuk menjaga
+                        urutan sesi foto Anda dari halaman bilik utama (Photo
+                        Booth) ke halaman Editor. Data ini dihapus saat sesi
+                        selesai atau cache browser dibersihkan.
+                    </p>
+                </div>
+
+                <div class="mt-12 flex justify-start">
+                    <button
+                        onclick="window.history.back();"
+                        class="inline-block bg-neo-black text-neo-white font-black text-lg py-3 px-6 border-4 border-neo-white shadow-[4px_4px_0_0_#111827] hover:shadow-[6px_6px_0_0_#111827] hover:-translate-y-1 active:shadow-none active:translate-y-2 transition-all uppercase tracking-widest"
+                    >
+                        <i class="fa fa-arrow-left mr-2"></i> KEMBALI
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

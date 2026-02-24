@@ -1,0 +1,394 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Kuzupost PhotoStrips - Beranda">
+	<!-- Hero Section -->
+	<div
+		class="relative min-h-[75vh] flex items-center py-12 px-4 md:px-8 overflow-hidden bg-neo-bg"
+	>
+		<!-- Particles Background -->
+		<div id="particles-js" class="absolute inset-0 z-0 pointer-events-none">
+		</div>
+
+		<div
+			class="max-w-6xl mx-auto w-full relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+		>
+			<!-- Left Column: Copywriting -->
+			<div class="flex flex-col items-start text-left">
+				<p
+					class="font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-4 text-neo-pink bg-neo-black inline-block px-4 py-2 border-2 border-neo-black shadow-[4px_4px_0_0_#000] transform -rotate-2"
+				>
+					✦ Browser-based · No signup · Free
+				</p>
+
+				<h1
+					class="text-5xl md:text-6xl lg:text-7xl font-black text-neo-black uppercase tracking-tighter leading-none mb-4 drop-shadow-[4px_4px_0_#fff]"
+				>
+					Capture <br />
+					Memories <br />
+					<span
+						class="text-neo-white text-stroke-sm relative inline-block transform -rotate-2 hover:rotate-1 transition-transform"
+						>in Film</span
+					>
+				</h1>
+
+				<p
+					class="text-base md:text-lg font-bold text-gray-800 mb-8 max-w-md bg-neo-white p-4 border-[3px] border-neo-black shadow-[6px_6px_0_0_#111827]"
+				>
+					A beautiful vintage photobooth that lives entirely in your
+					browser. Take photos, apply film filters, choose a layout,
+					and download your strip — no sign-up required.
+				</p>
+
+				<a
+					href="/photostrip"
+					class="inline-flex items-center justify-center bg-neo-cyan text-neo-black font-black text-lg md:text-xl py-4 px-8 border-[3px] border-neo-black shadow-[6px_6px_0_0_#111827] hover:shadow-[10px_10px_0_0_#111827] hover:-translate-y-1 active:shadow-none active:translate-y-2 transition-all uppercase tracking-widest"
+				>
+					<i class="fa fa-camera-retro mr-3"></i> Open Photobooth
+				</a>
+			</div>
+
+			<!-- Right Column: Graphic/Logo -->
+			<div
+				class="relative w-full h-[300px] md:h-[400px] flex items-center justify-center"
+			>
+				<!-- Floating Brutalist Elements -->
+				<div
+					class="absolute top-4 right-4 md:top-10 md:right-10 w-20 h-20 md:w-24 md:h-24 bg-neo-yellow border-[3px] border-neo-black neo-shadow-lg transform rotate-12 z-0 animate-bounce"
+					style="animation-duration: 4s;"
+				>
+				</div>
+				<div
+					class="absolute bottom-4 left-4 md:bottom-10 md:left-10 w-28 h-28 md:w-32 md:h-32 bg-neo-pink rounded-full border-[3px] border-neo-black neo-shadow-xl z-0 animate-pulse"
+				>
+				</div>
+				<div
+					class="absolute top-1/2 left-10 md:left-20 w-12 h-12 md:w-16 md:h-16 bg-neo-white border-[3px] border-neo-black neo-shadow transform -rotate-45 z-0"
+				>
+				</div>
+
+				<!-- Main Logo Container -->
+				<div
+					class="relative z-10 bg-neo-white border-[4px] border-neo-black rounded-full p-6 md:p-8 shadow-[12px_12px_0_0_#111827] hover:scale-105 transition-transform duration-300"
+				>
+					<img
+						src="/Logo.png"
+						alt="PhotoStrips Logo"
+						class="h-40 w-40 md:h-56 md:w-56 object-contain mix-blend-multiply"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Features Section -->
+	<section
+		class="py-16 sm:py-24 bg-neo-pink border-y-[4px] border-neo-black relative overflow-hidden"
+	>
+		<!-- Checkerboard Pattern Overlay -->
+		<div
+			class="absolute inset-0 z-0 opacity-10"
+			style="background-image: repeating-linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), repeating-linear-gradient(45deg, #000 25%, #fff 25%, #fff 75%, #000 75%, #000); background-position: 0 0, 20px 20px; background-size: 40px 40px;"
+		>
+		</div>
+
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+			<div class="text-center mb-16">
+				<p
+					class="font-bold text-sm tracking-[0.2em] uppercase mb-4 text-neo-black bg-neo-yellow inline-block px-4 py-2 border-2 border-neo-black shadow-[4px_4px_0_0_#000] transform -rotate-2"
+				>
+					Features
+				</p>
+				<h2
+					class="text-4xl sm:text-6xl font-black text-neo-white text-stroke-sm drop-shadow-[4px_4px_0_#111827] uppercase"
+				>
+					Everything You Need
+				</h2>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<!-- Feature 1 -->
+				<div
+					class="bg-neo-white border-[3px] border-neo-black p-6 md:p-8 shadow-[8px_8px_0_0_#111827] flex flex-col sm:flex-row items-start gap-4 transform rotate-1 hover:rotate-0 hover:-translate-y-1 transition-all"
+				>
+					<div
+						class="w-14 h-14 bg-neo-yellow border-2 border-neo-black shadow-[4px_4px_0_0_#000] flex items-center justify-center text-2xl flex-shrink-0"
+					>
+						<i class="fa fa-lock"></i>
+					</div>
+					<div>
+						<h3
+							class="font-black text-xl md:text-2xl mb-2 uppercase tracking-wide"
+						>
+							Fully Private
+						</h3>
+						<p class="font-bold text-gray-800 text-base md:text-lg">
+							Everything runs in your browser. No uploads, no
+							servers, no accounts.
+						</p>
+					</div>
+				</div>
+				<!-- Feature 2 -->
+				<div
+					class="bg-neo-white border-[3px] border-neo-black p-6 md:p-8 shadow-[8px_8px_0_0_#111827] flex flex-col sm:flex-row items-start gap-4 transform -rotate-1 hover:rotate-0 hover:-translate-y-1 transition-all"
+				>
+					<div
+						class="w-14 h-14 bg-neo-cyan border-2 border-neo-black shadow-[4px_4px_0_0_#000] flex items-center justify-center text-2xl flex-shrink-0"
+					>
+						<i class="fa fa-sliders"></i>
+					</div>
+					<div>
+						<h3
+							class="font-black text-xl md:text-2xl mb-2 uppercase tracking-wide"
+						>
+							16 Film Filters
+						</h3>
+						<p class="font-bold text-gray-800 text-base md:text-lg">
+							Choose from sepia, noir, dreamy, grain, and more —
+							applied live.
+						</p>
+					</div>
+				</div>
+				<!-- Feature 3 -->
+				<div
+					class="bg-neo-white border-[3px] border-neo-black p-6 md:p-8 shadow-[8px_8px_0_0_#111827] flex flex-col sm:flex-row items-start gap-4 transform rotate-1 hover:rotate-0 hover:-translate-y-1 transition-all"
+				>
+					<div
+						class="w-14 h-14 bg-[#ffb6c1] border-2 border-neo-black shadow-[4px_4px_0_0_#000] flex items-center justify-center text-2xl flex-shrink-0"
+					>
+						<i class="fa fa-border-all"></i>
+					</div>
+					<div>
+						<h3
+							class="font-black text-xl md:text-2xl mb-2 uppercase tracking-wide"
+						>
+							Multiple Layouts
+						</h3>
+						<p class="font-bold text-gray-800 text-base md:text-lg">
+							Classic strips, film strips, polaroids, grids,
+							diagonal — pick your style.
+						</p>
+					</div>
+				</div>
+				<!-- Feature 4 -->
+				<div
+					class="bg-neo-white border-[3px] border-neo-black p-6 md:p-8 shadow-[8px_8px_0_0_#111827] flex flex-col sm:flex-row items-start gap-4 transform -rotate-1 hover:rotate-0 hover:-translate-y-1 transition-all"
+				>
+					<div
+						class="w-14 h-14 bg-emerald-300 border-2 border-neo-black shadow-[4px_4px_0_0_#000] flex items-center justify-center text-2xl flex-shrink-0"
+					>
+						<i class="fa fa-download"></i>
+					</div>
+					<div>
+						<h3
+							class="font-black text-xl md:text-2xl mb-2 uppercase tracking-wide"
+						>
+							Instant Download
+						</h3>
+						<p class="font-bold text-gray-800 text-base md:text-lg">
+							Export high-res PNG for print or a 1080x1350 version
+							for Instagram.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- How It Works Section -->
+	<section class="py-16 sm:py-24 bg-neo-bg">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6">
+			<div class="text-center mb-16">
+				<p
+					class="font-bold text-sm tracking-[0.2em] uppercase mb-4 text-neo-white bg-neo-black inline-block px-4 py-2 border-2 border-neo-white shadow-[4px_4px_0_0_#000] transform rotate-1"
+				>
+					How it works
+				</p>
+				<h2
+					class="text-4xl sm:text-6xl font-black text-neo-black uppercase tracking-tight"
+				>
+					Four Simple Steps
+				</h2>
+			</div>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+				<!-- Step 1 -->
+				<div
+					class="bg-neo-white border-[3px] border-neo-black p-6 shadow-[6px_6px_0_0_#111827] text-center hover:-translate-y-2 transition-transform relative"
+				>
+					<div
+						class="absolute -top-4 -left-4 w-12 h-12 bg-neo-yellow border-2 border-neo-black shadow-[4px_4px_0_0_#000] flex items-center justify-center text-xl font-black transform -rotate-6 z-10"
+					>
+						1
+					</div>
+					<h3 class="font-black text-2xl mb-3 uppercase mt-4">
+						Set Up
+					</h3>
+					<p class="font-bold text-gray-800 text-base">
+						Choose poses, countdown, and a starting filter
+					</p>
+				</div>
+				<!-- Step 2 -->
+				<div
+					class="bg-neo-white border-[3px] border-neo-black p-6 shadow-[6px_6px_0_0_#111827] text-center hover:-translate-y-2 transition-transform relative"
+				>
+					<div
+						class="absolute -top-4 -left-4 w-12 h-12 bg-neo-cyan border-2 border-neo-black shadow-[4px_4px_0_0_#000] flex items-center justify-center text-xl font-black transform rotate-3 z-10"
+					>
+						2
+					</div>
+					<h3 class="font-black text-2xl mb-3 uppercase mt-4">
+						Shoot
+					</h3>
+					<p class="font-bold text-gray-800 text-base">
+						Camera runs automatically with countdown
+					</p>
+				</div>
+				<!-- Step 3 -->
+				<div
+					class="bg-neo-white border-[3px] border-neo-black p-6 shadow-[6px_6px_0_0_#111827] text-center hover:-translate-y-2 transition-transform relative"
+				>
+					<div
+						class="absolute -top-4 -left-4 w-12 h-12 bg-[#ffb6c1] border-2 border-neo-black shadow-[4px_4px_0_0_#000] flex items-center justify-center text-xl font-black transform -rotate-3 z-10"
+					>
+						3
+					</div>
+					<h3 class="font-black text-2xl mb-3 uppercase mt-4">
+						Customize
+					</h3>
+					<p class="font-bold text-gray-800 text-base">
+						Adjust filter, pick a layout, add a caption
+					</p>
+				</div>
+				<!-- Step 4 -->
+				<div
+					class="bg-neo-white border-[3px] border-neo-black p-6 shadow-[6px_6px_0_0_#111827] text-center hover:-translate-y-2 transition-transform relative"
+				>
+					<div
+						class="absolute -top-4 -left-4 w-12 h-12 bg-emerald-300 border-2 border-neo-black shadow-[4px_4px_0_0_#000] flex items-center justify-center text-xl font-black transform rotate-6 z-10"
+					>
+						4
+					</div>
+					<h3 class="font-black text-2xl mb-3 uppercase mt-4">
+						Download
+					</h3>
+					<p class="font-bold text-gray-800 text-base">
+						Save high-res PNG for print or social
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section
+		class="text-center px-4 py-16 sm:py-24 bg-neo-yellow border-t-[4px] border-neo-black relative"
+	>
+		<!-- Decorative lines -->
+		<div
+			class="absolute top-0 left-0 w-8 h-full border-r-[3px] border-neo-black opacity-20 hidden md:block"
+		>
+		</div>
+		<div
+			class="absolute top-0 right-0 w-8 h-full border-l-[3px] border-neo-black opacity-20 hidden md:block"
+		>
+		</div>
+
+		<div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+			<a
+				href="/photostrip"
+				class="inline-flex items-center gap-4 font-black text-xl md:text-2xl tracking-widest uppercase px-8 py-6 transition-all bg-neo-black text-neo-white border-[3px] border-neo-white shadow-[8px_8px_0_0_#000] hover:-translate-y-2 hover:shadow-[12px_12px_0_0_#000] active:translate-y-2 active:shadow-none"
+			>
+				<i class="fa fa-camera-retro text-2xl text-neo-cyan"></i> Get Started
+				— It's Free
+			</a>
+
+			<p
+				class="mt-8 text-sm md:text-base font-bold text-neo-black uppercase tracking-widest bg-neo-white inline-block px-6 py-2 border-[3px] border-neo-black shadow-[4px_4px_0_0_#111827] transform rotate-1"
+			>
+				No account. No uploads. Just photos.
+			</p>
+		</div>
+	</section>
+
+	<script is:inline>
+		// Load particlesJS if available
+		window.onload = function () {
+			if (typeof particlesJS !== "undefined") {
+				particlesJS("particles-js", {
+					particles: {
+						number: {
+							value: 60,
+							density: { enable: true, value_area: 800 },
+						},
+						color: { value: "#111827" }, // Neo-black particles
+						shape: {
+							type: "circle",
+							stroke: { width: 0, color: "#111827" },
+							polygon: { nb_sides: 5 },
+						},
+						opacity: {
+							value: 0.8,
+							random: false,
+							anim: {
+								enable: false,
+								speed: 1,
+								opacity_min: 0.1,
+								sync: false,
+							},
+						},
+						size: {
+							value: 4,
+							random: true,
+							anim: {
+								enable: false,
+								speed: 40,
+								size_min: 0.1,
+								sync: false,
+							},
+						},
+						line_linked: {
+							enable: true,
+							distance: 150,
+							color: "#111827",
+							opacity: 0.4,
+							width: 2,
+						},
+						move: {
+							enable: true,
+							speed: 4,
+							direction: "none",
+							random: false,
+							straight: false,
+							out_mode: "out",
+							bounce: false,
+							attract: {
+								enable: false,
+								rotateX: 600,
+								rotateY: 1200,
+							},
+						},
+					},
+					interactivity: {
+						detect_on: "canvas",
+						events: {
+							onhover: { enable: true, mode: "repulse" },
+							onclick: { enable: true, mode: "push" },
+							resize: true,
+						},
+						modes: {
+							grab: {
+								distance: 400,
+								line_linked: { opacity: 1 },
+							},
+							repulse: { distance: 200, duration: 0.4 },
+							push: { particles_nb: 4 },
+						},
+					},
+					retina_detect: true,
+				});
+			}
+		};
+	</script>
+</Layout>
